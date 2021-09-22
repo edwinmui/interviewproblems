@@ -37,8 +37,7 @@ public:
             }
         }
     }
-    
-    int numIslands(vector<vector<char>>& grid) {
+    int numIslandsBFS(vector<vector<char>>& grid) {
         // BFS
         // iterate through entire matrix
         // moment we hit a 1, do a breadth-first search on those around the 1
@@ -50,6 +49,27 @@ public:
                 if (grid[row][col] == '1') {
                     bfs(grid, row, col);
                     num_islands += 1;
+                }
+            }
+        }
+        return num_islands;
+    }
+    
+    /** This is the BFS solution **/
+    void dfs(vector<vector<char>>& grid, int row, int col) {
+        grid[row][col] = '0';
+        if (row > 0 && grid[row-1][col] == '1') dfs(grid, row-1, col);
+        if (col > 0 && grid[row][col-1] == '1') dfs(grid, row, col-1);
+        if (row < grid.size() -1 && grid[row+1][col] == '1') dfs(grid, row + 1, col);
+        if (col < grid[0].size() - 1 && grid[row][col + 1] == '1') dfs(grid, row, col+1);
+    }
+    int numIslandsDFS(vector<vector<char>>& grid) {
+        int num_islands = 0;
+        for (int row = 0; row < grid.size(); ++row){
+            for (int col = 0; col < grid[0].size(); ++col){
+                if (grid[row][col] == '1') {
+                    ++num_islands;
+                    dfs(grid, row, col);
                 }
             }
         }
