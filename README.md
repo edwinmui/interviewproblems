@@ -1,2 +1,2 @@
-# Repo of Completed Leetcode Problems
-List of Leetcode Interview Problems.
+# Completed Leetcode Problems
+Repo of Leetcode Interview Problems.
