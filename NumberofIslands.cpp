@@ -7,6 +7,7 @@ using namespace std;
 class Solution {
 public:
     
+    /** This is the BFS solution **/
     // helper function
     void bfs(vector<vector<char>>& grid, int row, int col) {
         deque<pair<int, int>> q;
@@ -38,7 +39,7 @@ public:
     }
     
     int numIslands(vector<vector<char>>& grid) {
-        // DFS
+        // BFS
         // iterate through entire matrix
         // moment we hit a 1, do a breadth-first search on those around the 1
         // mark everything around it as 0 a.k.a sink it
